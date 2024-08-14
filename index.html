@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>DOM</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <div class="parent">
+            <div class="day">Moonday</div>
+            <div class="day">Tusday</div>
+            <div class="day">Wensday</div>
+            <div class="day">Thrusday</div>
+        </div>
+        <script>
+            ///parent to child
+         const parent=document.querySelector('.parent')
+       console.log(parent);
+       console.log(parent.children[1].innerHTML);
+      const childArray= Array.from(parent.children)
+      console.log(childArray)
+      childArray.forEach((e)=>{
+        console.log(e.innerHTML)
+      })
+    ////child to parent
+      const child=document.querySelector('.day')
+      console.log(child.parentElement);
+      console.log(child.nextElementSibling);
+      console.log(parent.childNodes)
+      //creating Element with js
+      const div=document.createElement('div')
+      div.className='myClass'
+      div.id='myId'
+      div.setAttribute('title','myTitle')
+      div.style.backgroundColor='blue'
+    //   div.innerHTML="Hi DOM" (wrogn way bacues is will take exit and overwrite it)
+      const text=document.createTextNode("Hey DOM")
+      div.append(text)
+      document.body.append(div)
+      console.log(div)
+
+/// creating element using function
+      function createDiv(element,className,color,text){
+          const e=document.createElement(`${element}`)
+          e.className=`${className}`
+          e.style.backgroundColor=`${color}`
+          const textData=document.createTextNode(`${text}`)
+          e.appendChild(textData)
+          document.body.appendChild(e)
+          console.log(e)
+      }
+      createDiv("h1","myh1","red","GoodMorning buddy")
+        </script>
+    </body>
+</html>

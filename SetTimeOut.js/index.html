@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+    <h1 id="set">Set interval out </h1>
+    <button id="start">start</button>
+    <button id="stop">stop</button>
+        <script>
+          const start=()=>{
+            console.log(new Date())
+           }
+         document.getElementById('start').addEventListener('click',()=>{
+            document.getElementById('set').innerHTML='started'
+           setInterval(start,1000)
+         })
+         document.getElementById('stop').addEventListener('click',()=>{
+            document.getElementById('set').innerHTML='stoped'
+           clearInterval(setInterval(start,1000))
+         })
+        </script>
+    </body>
+</html>
